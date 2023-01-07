@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    /* Add animation to the pages */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Dark style for the website */
+    body {
+      background-color: #222;
+      color: white;
+      font-family: Arial, sans-serif;
+      animation: fadeIn 0.5s;
+    }
+
+    /* Style for the navigation links */
+    .nav-link {
+      text-decoration: none;
+      color: white;
+      padding: 10px 20px;
+      display: inline-block;
+      border-radius: 5px;
+      transition: background-color 0.2s;
+    }
+
+    .nav-link:hover {
+      background-color: #444;
+    }
+
+    /* Style for the pages */
+    .page {
+      display: none;
+      padding: 20px;
+    }
+
+    /* Style for the active page */
+    .page.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation links -->
+  <div id="nav">
+    <a href="#home" class="nav-link">Home</a>
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </div>
+
+  <!-- Home page -->
+  <div id="home" class="page active">
+    <h1>Welcome to my website!</h1>
+    <p>This is the home page.</p>
+  </div>
+
+  <!-- Services page -->
+  <div id="services" class="page">
+    <h1>Our Services</h1>
+    <ul>
+      <li>Service 1</li>
+      <li>Service 2</li>
+      <li>Service 3</li>
+    </ul>
+  </div>
+
+  <!-- Contact page -->
+  <div id="contact" class="page">
+    <h1>Contact Us</h1>
+    <p>Phone: 555-555-5555</p>
+    <p>Email: info@example.com</p>
+  </div>
+
+  <!-- JavaScript to handle page switching -->
+  <script>
+    // Get the nav links
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Add a click event listener to each nav link
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        // Prevent the default link behavior
+        e.preventDefault();
+
+        // Get the id of the page to show
+        const pageId = e.target.getAttribute('href');
+
+        // Get all the pages
+        const pages = document.querySelectorAll('.page');
+
+        // Remove the active class from all the pages
+        pages.forEach(page => {
+          page.classList.remove('active');
+        });
+
+     // Add the active class to the target page
+document.querySelector(pageId).classList.add('active');
+      });
+    });
+  </script>
+</body>
+
+</html>
